@@ -1,0 +1,213 @@
+-bash-4.1$ ./bankserver
+----TCP/Server running at host NAME: cpp.cs.rutgers.edu
+Socket created
+bind done
+port number 36583
+Waiting for incoming connections...
+
+
+
+(different shell)
+-bash-4.1$ ./bankclient cpp.cs.rutgers.edu 36583
+Socket created
+connecting to hostname: cpp.cs.rutgers.edu
+connecting to port 36583
+Connected
+
+HEY you've connected to Vamsi and Armin's bank
+
+Enter Message:
+
+(server shell)
+begin print
+
+
+end bankserver print
+
+begin print
+
+
+end bankserver print
+Connection accepted
+
+(client shell)
+start test1
+
+You want to start an account sesh with name : test1
+couldn't find account with name : test1
+
+Enter message :
+open test1
+
+You want to open an account with name : test1
+made account
+
+Enter message :
+balance
+
+you want me to print out a balance
+no account in session
+
+Enter message :
+start test1
+
+You want to start an account sesh with name : test1
+succesfully started account session
+
+Enter message :
+
+
+(server shell)
+account: test1 created
+
+begin print
+
+account: test1
+balance: 0.00
+
+
+end bankserver print
+
+begin print
+
+account: test1
+balance: 0.00
+
+
+end bankserver print
+
+begin print
+
+account: test1
+balance: 0.00
+
+
+end bankserver print
+
+begin print
+
+account: test1
+in session
+
+
+end bankserver print
+
+(new shell)
+-bash-4.1$ ./bankclient cpp.cs.rutgers.edu 36583
+Socket created
+connecting to hostname: cpp.cs.rutgers.edu
+connecting to port 36583
+Connected
+
+HEY you've connected to Vamsi and Armin's bank
+
+Enter Message:
+start test1
+
+waiting to use account with name : test1
+waiting to use account with name : test1
+waiting to use account with name : test1
+
+
+(first shell)
+Enter message :
+credit 500
+
+account credited
+
+Enter message :
+balance
+
+you want me to print out a balance
+account: test1 balance is :500.00
+
+Enter message :
+finish
+
+finish an account sesh
+finished accounsesh
+
+Enter message :
+
+(second client shell)
+
+waiting to use account with name : test1
+waiting to use account with name : test1
+succesfully started account session
+you want me to print out a balance
+account: test1 balance is :500.00
+
+Enter message :
+debit 3452
+
+You want to debit account by amount: 3452.00
+too much debited
+
+Enter message :
+balance
+
+you want me to print out a balance
+account: test1 balance is :500.00
+
+Enter message :
+
+(first client shell)
+Enter message :
+open test2
+
+You want to open an account with name : test2made account
+
+Enter message :
+start test2
+
+You want to start an account sesh with name : test2
+succesfully started account session
+start
+Enter message :
+test 3
+
+invalid input format, try again
+
+Enter message :
+start test3
+
+You are still using account : test2
+
+(both clients)
+Enter message :
+finish
+
+finish an account sesh
+finished accounsesh
+
+Enter message :
+
+(server shell)
+
+account: test2
+balance: 0.00
+
+account: test1
+in session
+
+
+end bankserver print
+
+begin print
+
+account: test2
+balance: 0.00
+
+account: test1
+balance: 500.00
+
+
+end bankserver print
+
+^C-bash-4.1$
+
+(both clients)
+
+server exit
+closing client
+-bash-4.1$

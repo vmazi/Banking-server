@@ -1,0 +1,49 @@
+start up server and connect client to server
+
+show that you cant start a account sesh without the account existing
+
+create account
+
+watch print server function
+
+try to access balance outside of account session, says no
+
+start account session
+
+
+watch print function
+
+new client shell, connect to server
+
+try to access same account as client0, fail
+
+will begin waiting
+
+go back to client 0
+change balance
+
+finish
+
+go back to client1
+
+it'll access account now
+
+check balance
+
+
+debit too much, fail
+
+try to start another session, fail
+
+watch print function
+
+
+finish
+
+watch print function
+
+go back to server shell
+
+trigger SIGINT
+
+watch exit handling on both clients
